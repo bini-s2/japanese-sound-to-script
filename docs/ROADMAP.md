@@ -22,37 +22,55 @@ Discovery 완료.
 - HEARD / WRITE / LISTEN 구조
 - 소복이네 브랜드 활용 방향
 - 실제 판매 가능성 검토
+- Product Strategy와 Value Proposition
+- HEARD + 최소 COMPARE 중심 V1 범위
+- Must / Should / Could / Won't 우선순위
+- 초기 합격선 가설과 AI Guardrail
 
 다음 단계:
 
-- Product Strategy & MVP Planning
-- HEARD / COMPARE / READ / REVIEW 기능 우선순위 재검토
-- Value Proposition과 성공 기준 확정
+- Learning Design
+- 검색 1회에 포함할 최소 학습 행동 정의
+- 한글 발음·표기·뜻·문법의 노출 순서 정의
+- 저장 표현의 3~7일 재인식 방식 정의
 
-## Phase 1 — MVP
+## Phase 1 — HEARD MVP
+
+V1 목표:
+
+> 기억한 일본어 소리 하나를 정확한 표현으로 찾고, 오해한 이유를 이해한 뒤 다음 인식을 위한 학습 항목으로 남길 수 있는지 검증한다.
 
 핵심 기능:
 
-- 한글 발음 입력
-- 일본어 표기 추론
-- 히라가나 읽기
-- 한국어 의미
-- 표현 분석
-- 비슷한 표현
-- 저장
+- 한글 발음 입력과 선택형 맥락
+- 일본어 후보 2~3개와 확신 수준
+- 사용자의 후보 선택
+- 표기·히라가나·한국어 의미
+- 핵심 단어·활용·문법
+- 유사음과 예상 의미 비교
+- LocalStorage 저장
+- 찾던 표현 여부 피드백
 
 기술 목표:
 
-- 웹 기반
-- 반응형 UI
+- 웹 기반 반응형 UI
 - AI API 연동
-- LocalStorage 또는 간단한 DB 저장
+- LocalStorage 저장
+- 낮은 확신·정보 부족·오류 상태 구현
 
-제품 목표:
+초기 합격선 가설:
 
-- 사용자 1호로 직접 반복 사용
-- 최소 10개 이상의 실제 검색 사례 기록
-- 어떤 정보가 가장 유용한지 관찰
+- 실제 개인 사례 최소 10개
+- 목표 표현이 상위 3개 후보에 포함되는 사례 10개 중 8개 이상
+- 외부 검색 없이 후보를 선택하고 차이를 설명
+- 저장 표현의 3~7일 후 재인식 여부 기록
+
+V1 제외:
+
+- READ·WRITE·LISTEN 전체 모드
+- 상용 가사·음원·영상 DB
+- 완성형 SRS와 JLPT 급수별 커리큘럼
+- 로그인·결제·추천·소셜 기능
 
 ## Phase 2 — Learning Status & UX Validation
 
