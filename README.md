@@ -155,8 +155,8 @@
 - [x] Product Strategy·Value Proposition 확정
 - [x] HEARD 중심 V1 우선순위 확정
 - [x] Learning Design
-- [ ] IA
-- [ ] User Flow
+- [x] IA
+- [x] User Flow
 - [ ] Wireframe
 - [ ] Visual Direction
 - [ ] MVP Development
@@ -167,6 +167,7 @@
 - [`docs/PRODUCT.md`](./docs/PRODUCT.md) — 제품 정의와 UX 원칙
 - [`docs/PRODUCT-STRATEGY.md`](./docs/PRODUCT-STRATEGY.md) — Value Proposition·V1 우선순위·성공 기준
 - [`docs/LEARNING-DESIGN.md`](./docs/LEARNING-DESIGN.md) — 결과 노출·힌트·선택 복습·오답 피드백
+- [`docs/IA-USER-FLOW.md`](./docs/IA-USER-FLOW.md) — 화면 구조·검색·저장·복습·예외 흐름
 - [`docs/SYNTHESIS.md`](./docs/SYNTHESIS.md) — 인사이트·타깃·JTBD·최종 문제 정의
 - [`docs/LEARNING-STATUS.md`](./docs/LEARNING-STATUS.md) — 초기 학습 상태와 Skill Gap
 - [`docs/COMPETITIVE-RESEARCH.md`](./docs/COMPETITIVE-RESEARCH.md) — 경쟁 서비스·시장·콘텐츠 권리 리서치
