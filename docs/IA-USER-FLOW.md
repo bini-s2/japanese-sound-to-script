@@ -10,7 +10,7 @@ V1 홈은 검색 도구와 학습 콘텐츠 허브의 역할을 함께 합니다
 1. 기억한 일본어 소리를 찾는다.
 2. 무작위 단어·문장으로 바로 연습한다.
 3. 히라가나·가타카나·한자를 선택해 학습한다.
-4. 자체 노래·상황 대화·소복이네 그림으로 연습한다.
+4. J-POP 제목 퀴즈·상황 대화·소복이네 그림으로 연습한다.
 5. 저장한 표현을 원할 때 다시 학습한다.
 
 전역 내비게이션은 **홈**과 **저장 표현**으로 유지합니다. 무작위 연습·선택 학습·콘텐츠 퀴즈는 홈의 학습 섹션에서 진입하고, 복습은 저장 표현 안의 **복습하기**로 연결합니다.
@@ -55,7 +55,7 @@ flowchart TD
 2. 바로 연습하기 — 무작위 단어·문장
 3. 이어서 학습하기 — 저장·복습
 4. 선택 학습 — 히라가나·가타카나·한자
-5. 콘텐츠로 연습하기 — 자체 노래·상황 대화
+5. 콘텐츠로 연습하기 — J-POP 제목 퀴즈·상황 대화
 6. 소복이네 그림 퀴즈
 
 발음 검색 안에는 선택 맥락·분석·후보·낮은 확신·결과 없음·오류 흐름이 포함됩니다.
@@ -116,8 +116,10 @@ flowchart TD
 | P-02 | Practice Feedback | 정답·읽기·뜻 확인 | 저장 또는 다음 |
 | L-01 | Script Select | 히라가나·가타카나·한자 선택 | 학습 시작 |
 | L-02 | Script Table | 문자표·읽기 확인 | 퀴즈 풀기 |
-| Q-01 | Content Select | 자체 노래·상황 대화 선택 | 콘텐츠 시작 |
-| Q-02 | Content Quiz | 듣기·문장·뜻 문제 | 답 선택 |
+| Q-01 | Content Select | J-POP 제목 퀴즈·상황 대화 선택 | 콘텐츠 시작 |
+| Q-02 | J-POP Title Quiz | 곡 제목의 뜻 선택 | 답 선택 |
+| Q-03 | Title Feedback | 읽기·뜻·표현·출처 확인 | 저장 또는 다음 |
+| Q-04 | Situation Quiz | 문장·상황·뜻 문제 | 답 선택 |
 | I-01 | Picture Quiz | 그림과 맞는 표현 판단 | 답 선택 |
 | C-01 | Candidate List | 찾던 표현 선택 | 이 표현이에요 |
 | C-02 | Need More Context | 모호한 입력 보완 | 맥락 추가 |
@@ -465,7 +467,7 @@ flowchart TD
 - Setup
 - Read
 - Reading Open
-- Korean Pronunciation Open
+- Romanization Open
 - Recall Prompt
 - Multiple Choice
 - Correct
@@ -533,7 +535,7 @@ V1은 LocalStorage를 사용하며 계정·동기화는 포함하지 않습니�
 | /review/complete | Review Complete |
 | /practice | Random Word / Sentence Practice |
 | /learn/:script | Hiragana / Katakana / Kanji |
-| /content | Original Song / Situation Dialogue |
+| /content | J-POP Title Quiz / Situation Dialogue |
 | /picture-quiz | Sobokine Picture Quiz |
 
 실제 구현 시 라우트는 프레임워크와 상태 관리 방식에 따라 조정할 수 있습니다.
@@ -548,7 +550,7 @@ V1은 LocalStorage를 사용하며 계정·동기화는 포함하지 않습니�
 4. Result Collapsed / Expanded
 5. Quick Practice / Feedback
 6. Script Select / Table / Quiz
-7. Content Select / Song / Situation Quiz
+7. Content Select / J-POP Title / Situation Quiz
 8. Picture Quiz
 9. Saved List / Empty
 10. Review Setup / Read / Choice / Feedback / Complete
@@ -574,11 +576,12 @@ V1은 LocalStorage를 사용하며 계정·동기화는 포함하지 않습니�
 
 ### Content Practice
 
-- 권리를 확보한 자체 일본어 노래
+- 실제 J-POP의 곡 제목 텍스트를 보고 한국어 뜻 고르기
+- 정답 뒤 히라가나·선택형 영문 로마자·핵심 단어·문법 확인
+- 곡명·가수명·출처를 일반 텍스트로 표시
+- 가사·음원·앨범아트·로고·영상 이미지는 V1에서 제외
 - 식당·호텔·지하철·일상 대화 등 자체 상황 콘텐츠
-- 일본어 가사·문장 고르기
-- 뜻 고르기
-- 읽기·핵심 문법 확인
+- 문장·상황에 맞는 뜻 고르기
 
 ### Picture Quiz
 
@@ -604,3 +607,23 @@ V1은 LocalStorage를 사용하며 계정·동기화는 포함하지 않습니�
 - 추가 로딩 후 사용자의 현재 스크롤 위치를 유지합니다.
 - 로딩 중에는 버튼 자리에 짧은 진행 상태를 표시하고 중복 클릭을 막습니다.
 - 불러오기에 실패하면 기존 20개를 유지하고 버튼 아래에 다시 시도를 제공합니다.
+
+
+## 18. J-POP Title Quiz Flow
+
+```text
+일본어 곡 제목
+→ 뜻 객관식
+→ 정답
+→ 히라가나 읽기
+→ 선택형 로마자 발음
+→ 핵심 단어·문법
+→ 곡명·가수명·출처
+→ 저장 또는 다음 문제
+```
+
+- 문제 상태에서는 제목 텍스트만 크게 보여줍니다.
+- 곡이나 가수의 인지도보다 일본어 표현 자체로 답하게 합니다.
+- 가수명은 정답 피드백에서 출처 정보로 보여줍니다.
+- 오답 선택지는 제목의 단어·조사·활용을 실제로 혼동할 만한 의미로 구성합니다.
+- 실제 가사 한 줄, 음원 미리듣기, 앨범아트와 공식 로고는 포함하지 않습니다.
