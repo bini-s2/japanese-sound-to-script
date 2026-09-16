@@ -1,22 +1,25 @@
 # Information Architecture & User Flow
 
 > Status: V1 structure defined  
-> Scope: HEARD + COMPARE + SAVE + OPTIONAL REVIEW
+> Scope: HEARD + PRACTICE + COMPARE + SAVE + OPTIONAL REVIEW
 
 ## 1. IA Goal
 
-V1의 정보 구조는 사용자가 가장 자주 수행할 두 가지 행동에 집중합니다.
+V1 홈은 검색 도구와 학습 콘텐츠 허브의 역할을 함께 합니다.
 
 1. 기억한 일본어 소리를 찾는다.
-2. 저장한 표현을 원할 때 다시 학습한다.
+2. 무작위 단어·문장으로 바로 연습한다.
+3. 히라가나·가타카나·한자를 선택해 학습한다.
+4. 자체 노래·상황 대화·소복이네 그림으로 연습한다.
+5. 저장한 표현을 원할 때 다시 학습한다.
 
-독립적인 기능 메뉴를 늘리지 않고 **홈**과 **저장 표현**만 1차 내비게이션으로 둡니다. 복습은 별도 탭이 아니라 저장 표현 안의 **복습하기** 행동으로 연결합니다.
+전역 내비게이션은 **홈**과 **저장 표현**으로 유지합니다. 무작위 연습·선택 학습·콘텐츠 퀴즈는 홈의 학습 섹션에서 진입하고, 복습은 저장 표현 안의 **복습하기**로 연결합니다.
 
 ## 2. Primary Navigation
 
 ### Global Navigation
 
-- **홈** — 발음 검색의 시작점
+- **홈** — 발음 검색·무작위 연습·선택 학습·콘텐츠 퀴즈의 시작점
 - **저장 표현** — 저장 목록·표현 상세·복습 진입
 
 V1에서 제외:
@@ -25,7 +28,7 @@ V1에서 제외:
 - 프로필
 - 설정
 - 랭킹·스트릭
-- WRITE·READ·LISTEN 탭
+- 독립적인 WRITE·READ·LISTEN 탭
 - 결제·계정
 
 모바일에서는 2개 항목의 하단 내비게이션, 데스크톱에서는 헤더 내비게이션을 기본 가설로 둡니다. 구체적인 배치는 Wireframe 단계에서 검증합니다.
@@ -37,21 +40,25 @@ flowchart TD
     A["앱"]
     A --> B["홈"]
     A --> C["저장 표현"]
-    B --> D["후보 선택"]
-    D --> E["결과 상세"]
-    C --> F["표현 상세"]
-    C --> G["복습"]
+    B --> D["발음 검색"]
+    B --> E["바로 연습"]
+    B --> F["선택 학습"]
+    B --> G["콘텐츠 퀴즈"]
+    C --> H["복습"]
 ```
 
 ### Home
 
-- 한글 발음 입력
-- 선택 맥락 펼치기
-- 분석 시작
-- 로딩
-- 후보 선택
-- 낮은 확신·추가 맥락
-- 결과 없음·오류
+우선순위 순으로 대표 카드와 더보기를 제공합니다.
+
+1. 발음 검색
+2. 바로 연습하기 — 무작위 단어·문장
+3. 이어서 학습하기 — 저장·복습
+4. 선택 학습 — 히라가나·가타카나·한자
+5. 콘텐츠로 연습하기 — 자체 노래·상황 대화
+6. 소복이네 그림 퀴즈
+
+발음 검색 안에는 선택 맥락·분석·후보·낮은 확신·결과 없음·오류 흐름이 포함됩니다.
 
 ### Candidate Selection
 
@@ -105,6 +112,13 @@ flowchart TD
 | H-01 | Home / Initial | 검색 시작 | 분석하기 |
 | H-02 | Home / Context Open | 선택 맥락 입력 | 입력 완료 |
 | H-03 | Loading | AI 분석 상태 전달 | 취소 |
+| P-01 | Quick Practice | 무작위 단어·문장 연습 | 문제 시작 |
+| P-02 | Practice Feedback | 정답·읽기·뜻 확인 | 저장 또는 다음 |
+| L-01 | Script Select | 히라가나·가타카나·한자 선택 | 학습 시작 |
+| L-02 | Script Table | 문자표·읽기 확인 | 퀴즈 풀기 |
+| Q-01 | Content Select | 자체 노래·상황 대화 선택 | 콘텐츠 시작 |
+| Q-02 | Content Quiz | 듣기·문장·뜻 문제 | 답 선택 |
+| I-01 | Picture Quiz | 그림과 맞는 표현 판단 | 답 선택 |
 | C-01 | Candidate List | 찾던 표현 선택 | 이 표현이에요 |
 | C-02 | Need More Context | 모호한 입력 보완 | 맥락 추가 |
 | C-03 | No Result | 검색 실패 회복 | 다시 입력 |
@@ -517,6 +531,10 @@ V1은 LocalStorage를 사용하며 계정·동기화는 포함하지 않습니�
 | /review | Review Setup |
 | /review/session | Review Session |
 | /review/complete | Review Complete |
+| /practice | Random Word / Sentence Practice |
+| /learn/:script | Hiragana / Katakana / Kanji |
+| /content | Original Song / Situation Dialogue |
+| /picture-quiz | Sobokine Picture Quiz |
 
 실제 구현 시 라우트는 프레임워크와 상태 관리 방식에 따라 조정할 수 있습니다.
 
@@ -524,12 +542,48 @@ V1은 LocalStorage를 사용하며 계정·동기화는 포함하지 않습니�
 
 다음 단계에서는 아래 화면을 실제 레이아웃으로 검증합니다.
 
-1. Home / Search
-2. Optional Context
+1. Home Content Hub
+2. Home / Search + Optional Context
 3. Candidate List
 4. Result Collapsed / Expanded
-5. Saved List / Empty
-6. Review Setup
-7. Review Read / Choice / Feedback
-8. Review Complete
-9. Low Confidence / No Result / Error
+5. Quick Practice / Feedback
+6. Script Select / Table / Quiz
+7. Content Select / Song / Situation Quiz
+8. Picture Quiz
+9. Saved List / Empty
+10. Review Setup / Read / Choice / Feedback / Complete
+11. Low Confidence / No Result / Error
+
+
+## 17. Home Learning Modules
+
+### Quick Practice
+
+- 무작위 단어
+- 무작위 짧은 문장
+- 히라가나·가타카나·한자가 섞인 실제 표기
+- 읽기→뜻 떠올리기→뜻 고르기→피드백
+- 유용한 표현 저장
+
+### Select Learning
+
+- 히라가나 표·행별 연습·읽기 퀴즈
+- 가타카나 표·유사 글자 비교·외래어 퀴즈
+- 생활 한자·단어 읽기·문장 속 인식
+
+### Content Practice
+
+- 권리를 확보한 자체 일본어 노래
+- 식당·호텔·지하철·일상 대화 등 자체 상황 콘텐츠
+- 일본어 가사·문장 고르기
+- 뜻 고르기
+- 읽기·핵심 문법 확인
+
+### Picture Quiz
+
+- 소복이네 그림→단어 고르기
+- 상황 그림→문장 고르기
+- 캐릭터 대사와 상황이 맞는지 O/X
+- 정답 뒤 읽기·뜻·상황 설명
+
+세부 제작 수량과 권리 기준은 [CONTENT-PLAN.md](./CONTENT-PLAN.md)를 따릅니다.
