@@ -108,20 +108,21 @@
 
 ```text
 한글 발음 입력
-→ 일본어 표기 추론
-→ 뜻 / 읽기 / 표현 분석
-→ 저장
+→ 일본어 후보 비교·선택
+→ 표기 / 읽기 / 뜻 / 핵심 구조
+→ 예상과 실제 의미 비교
+→ 저장·피드백
 ```
 
 ### V1 Scope
 
 - 한글 발음 입력
-- 가능한 일본어 원문 제안
-- 히라가나 읽기
-- 한국어 의미
-- 표현·문법 구조
-- 비슷한 표현
-- 표현 저장
+- 가능한 일본어 후보 2~3개와 확신 수준
+- 사용자의 후보 선택
+- 히라가나 읽기와 한국어 의미
+- 핵심 표현·문법 구조
+- 유사음·예상 의미 비교
+- 표현 저장과 결과 피드백
 
 ### Not in V1
 
@@ -147,7 +148,9 @@
 - [x] HEARD / WRITE / LISTEN 구조 정의
 - [x] 경험 리서치 통합
 - [x] 최종 인사이트·Target·JTBD·Problem Statement 확정
-- [ ] MVP 우선순위 재검토
+- [x] Product Strategy·Value Proposition 확정
+- [x] HEARD 중심 V1 우선순위 확정
+- [ ] Learning Design
 - [ ] IA
 - [ ] User Flow
 - [ ] Wireframe
@@ -158,6 +161,7 @@
 ## Docs
 
 - [`docs/PRODUCT.md`](./docs/PRODUCT.md) — 제품 정의와 UX 원칙
+- [`docs/PRODUCT-STRATEGY.md`](./docs/PRODUCT-STRATEGY.md) — Value Proposition·V1 우선순위·성공 기준
 - [`docs/SYNTHESIS.md`](./docs/SYNTHESIS.md) — 인사이트·타깃·JTBD·최종 문제 정의
 - [`docs/LEARNING-STATUS.md`](./docs/LEARNING-STATUS.md) — 초기 학습 상태와 Skill Gap
 - [`docs/COMPETITIVE-RESEARCH.md`](./docs/COMPETITIVE-RESEARCH.md) — 경쟁 서비스·시장·콘텐츠 권리 리서치
