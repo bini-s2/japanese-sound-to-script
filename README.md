@@ -111,7 +111,8 @@
 → 일본어 후보 비교·선택
 → 표기 / 읽기 / 뜻 / 핵심 구조
 → 예상과 실제 의미 비교
-→ 저장·피드백
+→ 저장
+→ 원할 때 복습하기
 ```
 
 ### V1 Scope
@@ -123,6 +124,9 @@
 - 핵심 표현·문법 구조
 - 유사음·예상 의미 비교
 - 표현 저장과 결과 피드백
+- 사용자가 선택하는 Minimal Review
+- 표기 읽기 → 뜻 떠올리기 → 뜻 객관식
+- 알았어요 / 헷갈려요 자기평가
 
 ### Not in V1
 
@@ -150,7 +154,7 @@
 - [x] 최종 인사이트·Target·JTBD·Problem Statement 확정
 - [x] Product Strategy·Value Proposition 확정
 - [x] HEARD 중심 V1 우선순위 확정
-- [ ] Learning Design
+- [x] Learning Design
 - [ ] IA
 - [ ] User Flow
 - [ ] Wireframe
@@ -162,6 +166,7 @@
 
 - [`docs/PRODUCT.md`](./docs/PRODUCT.md) — 제품 정의와 UX 원칙
 - [`docs/PRODUCT-STRATEGY.md`](./docs/PRODUCT-STRATEGY.md) — Value Proposition·V1 우선순위·성공 기준
+- [`docs/LEARNING-DESIGN.md`](./docs/LEARNING-DESIGN.md) — 결과 노출·힌트·선택 복습·오답 피드백
 - [`docs/SYNTHESIS.md`](./docs/SYNTHESIS.md) — 인사이트·타깃·JTBD·최종 문제 정의
 - [`docs/LEARNING-STATUS.md`](./docs/LEARNING-STATUS.md) — 초기 학습 상태와 Skill Gap
 - [`docs/COMPETITIVE-RESEARCH.md`](./docs/COMPETITIVE-RESEARCH.md) — 경쟁 서비스·시장·콘텐츠 권리 리서치
