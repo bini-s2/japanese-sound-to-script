@@ -141,8 +141,12 @@
 
 - [x] 핵심 문제 정의
 - [x] 타깃 사용자 정의
+- [x] Learning Status Mapping
+- [x] 경쟁 서비스·시장 1차 리서치
 - [x] Core Learning Loop 정의
 - [x] HEARD / WRITE / LISTEN 구조 정의
+- [ ] 최종 인사이트 정리·문제 정의 확정
+- [ ] MVP 우선순위 재검토
 - [ ] IA
 - [ ] User Flow
 - [ ] Wireframe
@@ -153,6 +157,8 @@
 ## Docs
 
 - [`docs/PRODUCT.md`](./docs/PRODUCT.md) — 제품 정의와 UX 원칙
+- [`docs/LEARNING-STATUS.md`](./docs/LEARNING-STATUS.md) — 초기 학습 상태와 Skill Gap
+- [`docs/COMPETITIVE-RESEARCH.md`](./docs/COMPETITIVE-RESEARCH.md) — 경쟁 서비스·시장·콘텐츠 권리 리서치
 - [`docs/MVP.md`](./docs/MVP.md) — 첫 버전 범위
 - [`docs/ROADMAP.md`](./docs/ROADMAP.md) — 단계별 확장 계획
 
