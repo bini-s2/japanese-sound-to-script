@@ -31,12 +31,16 @@ Discovery 완료.
 - 기본 숨김 한국어 발음 힌트
 - 사용자 선택형 Minimal Review
 - 알았어요 / 헷갈려요 자기평가
+- Information Architecture & User Flow
+- 홈·후보·결과·저장·복습의 화면 구조
+- 낮은 확신·추가 맥락·후보 없음·오류 흐름
+- 복습 중단·완료와 상태·데이터 구조
 
 다음 단계:
 
-- Information Architecture & User Flow
-- 홈·검색·후보·결과·저장·복습 화면 구조 정의
-- 정상·낮은 확신·후보 없음·오류 흐름 정의
+- UX Design / Low-fi Wireframe
+- 핵심 9개 화면의 정보 위계와 CTA 배치
+- 모바일 우선 레이아웃과 주요 상태 검증
 
 ## Phase 1 — HEARD MVP
 
