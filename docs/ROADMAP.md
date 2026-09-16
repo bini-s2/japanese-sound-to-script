@@ -2,7 +2,7 @@
 
 ## Phase 0 — Concept
 
-현재 단계.
+Discovery 완료.
 
 목표:
 
@@ -17,15 +17,17 @@
 - `Sound → Script → Meaning → Recall`
 - Learning Status Mapping
 - 경쟁 서비스·시장·콘텐츠 권리 1차 리서치
+- Experience Research 통합
+- Target User / JTBD / Final Problem Statement
 - HEARD / WRITE / LISTEN 구조
 - 소복이네 브랜드 활용 방향
 - 실제 판매 가능성 검토
 
 다음 단계:
 
-- 경험 자료와 경쟁 리서치 통합
-- 최종 Problem Statement 확정
-- MVP 기능 우선순위 재검토
+- Product Strategy & MVP Planning
+- HEARD / COMPARE / READ / REVIEW 기능 우선순위 재검토
+- Value Proposition과 성공 기준 확정
 
 ## Phase 1 — MVP
 
