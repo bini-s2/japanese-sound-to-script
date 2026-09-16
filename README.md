@@ -138,7 +138,7 @@
 - 알았어요 / 헷갈려요 자기평가
 - 무작위 단어·문장·혼합 표기 연습
 - 히라가나·가타카나·자주 쓰는 한자 표현·문장 학습
-- 자체 노래·상황 대화·소복이네 그림 퀴즈
+- J-POP 제목 뜻 고르기·읽기·표현 분석 퀴즈, 자체 상황 대화, 소복이네 그림 퀴즈
 
 ### Not in V1
 
@@ -180,7 +180,7 @@
 - [`docs/PRODUCT-STRATEGY.md`](./docs/PRODUCT-STRATEGY.md) — Value Proposition·V1 우선순위·성공 기준
 - [`docs/LEARNING-DESIGN.md`](./docs/LEARNING-DESIGN.md) — 결과 노출·힌트·선택 복습·오답 피드백
 - [`docs/IA-USER-FLOW.md`](./docs/IA-USER-FLOW.md) — 화면 구조·검색·학습 콘텐츠·저장·복습·예외 흐름
-- [`docs/CONTENT-PLAN.md`](./docs/CONTENT-PLAN.md) — 무작위·문자·자체 노래·상황·그림 퀴즈 구성
+- [`docs/CONTENT-PLAN.md`](./docs/CONTENT-PLAN.md) — 무작위·문자·J-POP 제목·상황·그림 퀴즈 구성
 - [`docs/KANJI-CONTENT.md`](./docs/KANJI-CONTENT.md) — 자주 쓰는 한자 표현 20개·예문·뉘앙스 기준
 - [`docs/SYNTHESIS.md`](./docs/SYNTHESIS.md) — 인사이트·타깃·JTBD·최종 문제 정의
 - [`docs/LEARNING-STATUS.md`](./docs/LEARNING-STATUS.md) — 초기 학습 상태와 Skill Gap
