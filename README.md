@@ -181,7 +181,7 @@
 - [`docs/LEARNING-DESIGN.md`](./docs/LEARNING-DESIGN.md) — 결과 노출·힌트·선택 복습·오답 피드백
 - [`docs/IA-USER-FLOW.md`](./docs/IA-USER-FLOW.md) — 화면 구조·검색·학습 콘텐츠·저장·복습·예외 흐름
 - [`docs/CONTENT-PLAN.md`](./docs/CONTENT-PLAN.md) — 무작위·문자·J-POP 제목·상황·그림 퀴즈 구성
-- [`docs/JPOP-TITLE-CONTENT.md`](./docs/JPOP-TITLE-CONTENT.md) — 첨부 자료 기반 J-POP 제목 퀴즈 후보 18개
+- [`docs/JPOP-TITLE-CONTENT.md`](./docs/JPOP-TITLE-CONTENT.md) — 첨부 자료 기반 J-POP 제목 퀴즈 후보 135개
 - [`docs/KANJI-CONTENT.md`](./docs/KANJI-CONTENT.md) — 자주 쓰는 한자 표현 20개·예문·뉘앙스 기준
 - [`docs/SYNTHESIS.md`](./docs/SYNTHESIS.md) — 인사이트·타깃·JTBD·최종 문제 정의
 - [`docs/LEARNING-STATUS.md`](./docs/LEARNING-STATUS.md) — 초기 학습 상태와 Skill Gap
