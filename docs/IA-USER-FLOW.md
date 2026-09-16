@@ -1,0 +1,535 @@
+# Information Architecture & User Flow
+
+> Status: V1 structure defined  
+> Scope: HEARD + COMPARE + SAVE + OPTIONAL REVIEW
+
+## 1. IA Goal
+
+V1의 정보 구조는 사용자가 가장 자주 수행할 두 가지 행동에 집중합니다.
+
+1. 기억한 일본어 소리를 찾는다.
+2. 저장한 표현을 원할 때 다시 학습한다.
+
+독립적인 기능 메뉴를 늘리지 않고 **홈**과 **저장 표현**만 1차 내비게이션으로 둡니다. 복습은 별도 탭이 아니라 저장 표현 안의 **복습하기** 행동으로 연결합니다.
+
+## 2. Primary Navigation
+
+### Global Navigation
+
+- **홈** — 발음 검색의 시작점
+- **저장 표현** — 저장 목록·표현 상세·복습 진입
+
+V1에서 제외:
+
+- 별도 복습 탭
+- 프로필
+- 설정
+- 랭킹·스트릭
+- WRITE·READ·LISTEN 탭
+- 결제·계정
+
+모바일에서는 2개 항목의 하단 내비게이션, 데스크톱에서는 헤더 내비게이션을 기본 가설로 둡니다. 구체적인 배치는 Wireframe 단계에서 검증합니다.
+
+## 3. Sitemap
+
+```mermaid
+flowchart TD
+    A["앱"]
+    A --> B["홈"]
+    A --> C["저장 표현"]
+    B --> D["후보 선택"]
+    D --> E["결과 상세"]
+    C --> F["표현 상세"]
+    C --> G["복습"]
+```
+
+### Home
+
+- 한글 발음 입력
+- 선택 맥락 펼치기
+- 분석 시작
+- 로딩
+- 후보 선택
+- 낮은 확신·추가 맥락
+- 결과 없음·오류
+
+### Candidate Selection
+
+- 입력한 한글 발음
+- 선택 맥락 요약
+- 일본어 후보 2~3개
+- 후보별 표기·히라가나·한 줄 의미
+- 후보 간 핵심 차이
+- 찾던 표현 없음
+- 맥락 추가
+
+### Result Detail
+
+- 일본어 표기
+- 읽기·뜻 펼치기
+- 한국어 발음 힌트
+- 핵심 단어·활용
+- 유사 후보 비교
+- 예상 의미와 실제 의미
+- 상세 문법
+- 저장
+- 찾던 표현 여부 피드백
+- 새 표현 찾기
+
+### Saved Expressions
+
+- 저장 표현 목록
+- 최근 저장 순 정렬
+- 전체 / 헷갈려요 필터
+- 표현 상세
+- 복습하기
+- Empty State
+
+### Review
+
+- 문제 수 선택
+- 표기 읽기
+- 읽기 확인
+- 발음 힌트
+- 뜻 떠올리기
+- 뜻 객관식
+- 정답·오답 피드백
+- 알았어요 / 헷갈려요
+- 세션 완료
+- 중도 종료
+
+## 4. Screen Inventory
+
+| ID | Screen | Main purpose | Primary action |
+|---|---|---|---|
+| H-01 | Home / Initial | 검색 시작 | 분석하기 |
+| H-02 | Home / Context Open | 선택 맥락 입력 | 입력 완료 |
+| H-03 | Loading | AI 분석 상태 전달 | 취소 |
+| C-01 | Candidate List | 찾던 표현 선택 | 이 표현이에요 |
+| C-02 | Need More Context | 모호한 입력 보완 | 맥락 추가 |
+| C-03 | No Result | 검색 실패 회복 | 다시 입력 |
+| R-01 | Result / Collapsed | 일본어 표기 먼저 확인 | 읽기·뜻 보기 |
+| R-02 | Result / Expanded | 뜻·읽기·핵심 구조 이해 | 저장하기 |
+| R-03 | Result / Compare | 후보·오해 원인 비교 | 상세 문법 보기 |
+| S-01 | Saved List | 저장 표현 탐색 | 표현 보기 |
+| S-02 | Saved Empty | 저장 전 안내 | 표현 찾으러 가기 |
+| S-03 | Saved Detail | 저장 표현 재확인 | 복습 또는 삭제 |
+| V-01 | Review Setup | 문제 수 선택 | 복습 시작 |
+| V-02 | Review / Read | 표기 읽기 시도 | 읽기 확인 |
+| V-03 | Review / Recall | 뜻 떠올리기 | 뜻 확인하기 |
+| V-04 | Review / Choice | 의미 객관식 | 답 선택 |
+| V-05 | Review / Feedback | 정답·핵심 차이 확인 | 자기평가 |
+| V-06 | Review Complete | 세션 결과 요약 | 저장 표현으로 |
+| X-01 | Error | 일시 오류에서 회복 | 다시 시도 |
+
+## 5. Core Search Flow
+
+```mermaid
+flowchart TD
+    A["홈"]
+    B["발음 입력"]
+    C["선택 맥락"]
+    D["AI 분석"]
+    E["후보 2~3개"]
+    F["결과 상세"]
+    G["저장"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+```
+
+### Step 1 — Home
+
+기본 화면에는 한글 발음 입력을 가장 먼저 배치합니다.
+
+필수:
+
+- 한글 발음
+
+선택 영역:
+
+- 들은 곳
+- 상황
+- 앞뒤 단어
+- 예상 의미
+
+선택 영역은 접힌 상태로 시작하며 검색을 막지 않습니다.
+
+### Step 2 — Loading
+
+- 입력한 발음을 유지합니다.
+- 현재 분석 중임을 보여줍니다.
+- 긴 로딩 문구나 과장된 AI 표현을 사용하지 않습니다.
+- 취소하면 입력값이 남은 홈으로 돌아갑니다.
+
+### Step 3 — Candidate Selection
+
+후보가 하나뿐이어도 자동으로 정답 처리하지 않습니다. “이 표현인가요?” 확인 단계를 거칩니다.
+
+후보 카드:
+
+- 일본어 표기
+- 히라가나
+- 한 줄 의미
+- 상황 적합성 또는 다른 후보와의 차이
+- 정성적 상태: 가능성 높음 / 맥락 필요
+
+숫자 형태의 AI 확률은 사용하지 않습니다.
+
+### Step 4 — Result
+
+첫 상태에는 일본어 표기만 가장 강하게 보여줍니다.
+
+사용자 행동 순서:
+
+1. 일본어 표기 확인
+2. 읽기·뜻 펼치기
+3. 필요하면 한국어 발음 힌트
+4. 핵심 단어·활용 확인
+5. 후보 차이·오해 원인 확인
+6. 상세 문법 펼치기
+7. 저장 또는 새 검색
+
+## 6. Ambiguity & Failure Flow
+
+```mermaid
+flowchart TD
+    A["AI 분석"]
+    B{"후보 생성 가능?"}
+    C["후보 목록"]
+    D["추가 맥락 요청"]
+    E["결과 없음"]
+    F["입력 수정"]
+
+    A --> B
+    B -->|충분함| C
+    B -->|모호함| D
+    B -->|불가능| E
+    D --> A
+    E --> F
+```
+
+### Low Confidence
+
+다음 상황에서는 정답처럼 단정하지 않습니다.
+
+- 입력이 너무 짧음
+- 여러 일본어 표현이 동일하게 들림
+- 발음 누락이 큼
+- 상황과 후보가 충돌함
+
+제공 행동:
+
+- 상황 선택
+- 앞뒤 단어 추가
+- 예상 의미 추가
+- 입력 수정
+- 그래도 검색
+
+### No Result
+
+- “일본어가 아닙니다”처럼 단정하지 않습니다.
+- 기억나는 부분만 다시 입력할 수 있게 합니다.
+- 예시를 보여주되 사용자의 입력을 삭제하지 않습니다.
+- 새 검색과 맥락 추가를 모두 제공합니다.
+
+### Technical Error
+
+- 입력값을 보존합니다.
+- 다시 시도와 홈으로 돌아가기를 제공합니다.
+- 저장 실패 시 결과 화면은 유지합니다.
+
+## 7. Save Flow
+
+```mermaid
+flowchart TD
+    A["결과 상세"]
+    B["저장하기"]
+    C{"이미 저장됨?"}
+    D["저장 완료"]
+    E["중복 안내"]
+    F["저장 표현"]
+
+    A --> B
+    B --> C
+    C -->|아니요| D
+    C -->|예| E
+    D --> F
+    E --> F
+```
+
+### Save Rules
+
+- 동일한 일본어 표기와 의미 조합은 중복 저장하지 않습니다.
+- 이미 저장한 표현이면 “저장됨” 상태를 유지합니다.
+- 저장 후 즉시 복습을 요구하지 않습니다.
+- 저장 완료 뒤 현재 결과를 계속 볼 수 있습니다.
+- 저장 목록에서는 최근 저장 표현을 먼저 보여줍니다.
+
+## 8. Saved Expressions Structure
+
+### List Card
+
+- 일본어 표기
+- 마지막 상태: 미복습 / 알았어요 / 헷갈려요
+- 저장한 상황 또는 출처
+- 저장일
+
+뜻과 한국어 발음은 목록에서 항상 펼쳐두지 않습니다. 카드를 선택하면 표현 상세에서 확인합니다.
+
+### Filters
+
+V1 필터:
+
+- 전체
+- 헷갈려요
+
+검색·태그·상세 정렬은 사용 사례가 쌓인 뒤 확장합니다.
+
+### Empty State
+
+- 아직 저장한 표현이 없다는 사실
+- 저장하면 무엇을 할 수 있는지
+- ‘표현 찾으러 가기’ 버튼
+
+소복이네 캐릭터는 안내를 돕되 정보보다 크게 보이지 않게 합니다.
+
+## 9. Review Setup Flow
+
+```mermaid
+flowchart TD
+    A["저장 표현"]
+    B["복습하기"]
+    C["문제 수 선택"]
+    D["출제 목록 구성"]
+    E["복습 시작"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+### Count Selection
+
+- 1부터 현재 저장 개수까지 직접 선택
+- 0개는 시작 불가
+- 저장 개수를 초과할 수 없음
+- 선택한 개수와 예상 진행량 표시
+- 저장 표현이 없으면 복습하기 비활성화
+
+### Selection Logic
+
+1. ‘헷갈려요’ 표현을 우선 포함
+2. 남은 자리를 전체 저장 표현에서 무작위로 선택
+3. 헷갈린 표현이 선택 개수보다 많으면 그중 무작위 선택
+4. 같은 세션에서 동일 표현 중복 없음
+
+## 10. One-expression Review Flow
+
+```mermaid
+flowchart TD
+    A["일본어 표기"]
+    B["읽기 확인"]
+    C["뜻 떠올리기"]
+    D["뜻 객관식"]
+    E["정답 피드백"]
+    F["자기평가"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+```
+
+### Read
+
+- 일본어 표기만 먼저 표시
+- ‘읽기 확인’으로 히라가나 공개
+- 한국어 발음은 ‘발음 힌트 보기’로 별도 공개
+- 뜻은 아직 숨김
+
+### Recall & Choice
+
+- 뜻을 머릿속으로 떠올릴 시간을 줍니다.
+- ‘뜻 확인하기’를 누르면 객관식이 나옵니다.
+- 선택 전에는 정답 의미를 공개하지 않습니다.
+
+### Feedback
+
+정답:
+
+- 정답 상태
+- 핵심 의미
+- 상세 문법 펼치기
+
+오답:
+
+- 선택한 답과 정답 비교
+- 의미를 갈라놓은 핵심 차이
+- 상세 문법 펼치기
+- 강제 재도전 없음
+
+### Self-rating
+
+- 알았어요
+- 헷갈려요
+
+선택하면 다음 표현으로 이동합니다. ‘헷갈려요’는 다음 세션의 우선 출제 신호가 됩니다.
+
+## 11. Review Exit & Completion
+
+### Mid-session Exit
+
+복습 중 닫기 또는 뒤로 가기를 선택하면:
+
+- “복습을 그만할까요?” 확인
+- **계속하기**
+- **그만하기**
+
+그만하기를 선택해도 완료한 문제의 결과는 저장합니다. 미완료 문제는 기록하지 않습니다.
+
+### Completion
+
+표시 정보:
+
+- 완료한 표현 수
+- 알았어요 수
+- 헷갈려요 수
+- 발음 힌트를 사용한 표현 수
+
+제공 행동:
+
+- 저장 표현으로 돌아가기
+- 새 표현 찾기
+- 헷갈린 표현만 다시 보기 — 선택 사항이며 강제하지 않음
+
+축하 표현은 사용하되 스트릭·감점·압박 문구는 사용하지 않습니다.
+
+## 12. State Inventory
+
+### Search
+
+- Initial
+- Typing
+- Optional Context Open
+- Loading
+- Multiple Candidates
+- Single Candidate Confirmation
+- Low Confidence
+- Need More Context
+- No Result
+- Error
+
+### Result & Save
+
+- Result Collapsed
+- Result Expanded
+- Pronunciation Hint Open
+- Grammar Open
+- Unsaved
+- Saving
+- Saved
+- Save Error
+- Already Saved
+
+### Saved
+
+- Empty
+- List
+- Filtered
+- No Filter Result
+- Expression Detail
+
+### Review
+
+- Setup
+- Read
+- Reading Open
+- Korean Pronunciation Open
+- Recall Prompt
+- Multiple Choice
+- Correct
+- Incorrect
+- Self-rating
+- Exit Confirm
+- Complete
+
+## 13. Data Objects
+
+### Expression
+
+- id
+- japanese
+- kana
+- koreanPronunciation
+- meaning
+- source
+- context
+- originalSoundInput
+- expectedMeaning
+- gapExplanation
+- keyWords
+- grammar
+- similarCandidates
+- createdAt
+
+### Learning Record
+
+- expressionId
+- savedAt
+- lastReviewedAt
+- reviewCount
+- meaningChoiceCorrect
+- pronunciationHintOpened
+- lastSelfRating
+- confusedPriority
+
+V1은 LocalStorage를 사용하며 계정·동기화는 포함하지 않습니다.
+
+## 14. UX Guardrails
+
+- 검색 입력과 선택 맥락은 뒤로 가도 보존합니다.
+- 후보가 하나여도 사용자가 확인합니다.
+- 낮은 확신을 숫자 확률로 위장하지 않습니다.
+- 읽기와 뜻을 한꺼번에 자동 공개하지 않습니다.
+- 한국어 발음은 항상 사용자 요청 뒤에 보여줍니다.
+- 저장 후 복습을 강제하지 않습니다.
+- 오답 뒤 재도전을 강제하지 않습니다.
+- 복습 종료를 막지 않습니다.
+- 완료 문제의 기록만 저장합니다.
+- 저장 표현 삭제는 확인 후 수행합니다.
+
+## 15. V1 Routes — Working Draft
+
+| Route | Screen |
+|---|---|
+| / | Home / Search |
+| /candidates | Candidate Selection |
+| /result/:id | Result Detail |
+| /saved | Saved Expressions |
+| /saved/:id | Saved Detail |
+| /review | Review Setup |
+| /review/session | Review Session |
+| /review/complete | Review Complete |
+
+실제 구현 시 라우트는 프레임워크와 상태 관리 방식에 따라 조정할 수 있습니다.
+
+## 16. Next — Low-fi Wireframe
+
+다음 단계에서는 아래 화면을 실제 레이아웃으로 검증합니다.
+
+1. Home / Search
+2. Optional Context
+3. Candidate List
+4. Result Collapsed / Expanded
+5. Saved List / Empty
+6. Review Setup
+7. Review Read / Choice / Feedback
+8. Review Complete
+9. Low Confidence / No Result / Error
