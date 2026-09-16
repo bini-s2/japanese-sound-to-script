@@ -23,7 +23,7 @@ Discovery 완료.
 - 소복이네 브랜드 활용 방향
 - 실제 판매 가능성 검토
 - Product Strategy와 Value Proposition
-- HEARD + COMPARE + MINIMAL REVIEW 중심 V1 범위
+- HEARD + PRACTICE + COMPARE + MINIMAL REVIEW 중심 V1 범위
 - Must / Should / Could / Won't 우선순위
 - 초기 합격선 가설과 AI Guardrail
 - Learning Design
@@ -61,6 +61,9 @@ V1 목표:
 - 표기 읽기→뜻 떠올리기→뜻 객관식
 - 한국어 발음 기본 숨김과 알았어요 / 헷갈려요
 - 찾던 표현 여부 피드백
+- 무작위 단어·문장·혼합 표기 연습
+- 히라가나·가타카나·생활 한자 선택 학습
+- 자체 노래·상황 대화·소복이네 그림 퀴즈
 
 기술 목표:
 
@@ -78,7 +81,8 @@ V1 목표:
 
 V1 제외:
 
-- READ·WRITE·LISTEN 전체 모드
+- READ·WRITE 전체 모드
+- 대규모 LISTEN 콘텐츠 라이브러리
 - 상용 가사·음원·영상 DB
 - 완성형 SRS와 JLPT 급수별 커리큘럼
 - 로그인·결제·추천·소셜 기능
