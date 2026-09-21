@@ -177,6 +177,8 @@
 
 ## Docs
 
+- [`AGENTS.md`](./AGENTS.md) — 새 채팅/에이전트가 바로 작업을 이어가기 위한 시작 가이드
+- [`docs/CHAT-CONTINUATION-WORKFLOW.md`](./docs/CHAT-CONTINUATION-WORKFLOW.md) — 대화 방식·GitHub 수정·Vercel 검증·링크 전달·QA·`/log` 작업 규칙
 - [`docs/PRODUCT.md`](./docs/PRODUCT.md) — 제품 정의와 UX 원칙
 - [`docs/PRODUCT-STRATEGY.md`](./docs/PRODUCT-STRATEGY.md) — Value Proposition·V1 우선순위·성공 기준
 - [`docs/LEARNING-DESIGN.md`](./docs/LEARNING-DESIGN.md) — 결과 노출·힌트·선택 복습·오답 피드백
