@@ -1,6 +1,15 @@
 # Project Changelog
 
-> Production code는 `bini-s2/readdy-1ff67b`에 있으며, 이 문서는 기능 단위의 **프로젝트 기록**이다.
+## 2026-10-01 — Production repository rename
+
+- production repository를 `readdy-1ff67b`에서 **`japanese-sound-to-script-web`**으로 변경
+- 프로젝트 저장소와 production 저장소가 같은 naming family를 사용하도록 정리
+- 역할은 그대로 유지
+  - `japanese-sound-to-script` → 정돈된 제품/기획/결정/히스토리
+  - `japanese-sound-to-script-web` → 실제 웹앱 코드/API/Vercel 배포
+- rename 후 GitHub push 권한과 Vercel deployment status `success` 확인
+
+> Production code는 `bini-s2/japanese-sound-to-script-web`에 있으며, 이 문서는 기능 단위의 **프로젝트 기록**이다.
 
 ## 2026-09-30 — UI system & result hierarchy
 
@@ -69,7 +78,7 @@ Related production commits:
 
 ## Record rule from now on
 
-- production code commit → `readdy-1ff67b`
+- production code commit → `japanese-sound-to-script-web`
 - project meaning / decisions / implementation state → **this repository**
 - meaningful session changes are grouped into `CURRENT-IMPLEMENTATION.md` and this changelog
 - explicit public `/log` → `Design-log`

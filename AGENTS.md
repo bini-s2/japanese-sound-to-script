@@ -5,7 +5,7 @@
 ## 0. 세션 시작 시 가장 먼저 할 일
 
 1. 이 파일 → `docs/CURRENT-IMPLEMENTATION.md` → `docs/CHAT-CONTINUATION-WORKFLOW.md` 순서로 읽는다.
-2. 실제 사이트 수정 요청이면 라이브 소스 저장소 `bini-s2/readdy-1ff67b`의 최신 파일/SHA를 먼저 가져온다.
+2. 실제 사이트 수정 요청이면 라이브 소스 저장소 `bini-s2/japanese-sound-to-script-web`의 최신 파일/SHA를 먼저 가져온다.
 3. 사용자가 보낸 최신 스크린샷/요청만 정확히 반영하고, 관련 없는 UI나 기능은 임의로 바꾸지 않는다.
 4. production 수정 후 GitHub 커밋 → Vercel 배포 상태 확인 → 실제 라이브 링크를 사용자에게 전달한다.
 5. 의미 있는 기능·UX 결정·구조 변경은 **반드시 이 저장소(`japanese-sound-to-script`)에도 기록 커밋**을 남긴다.
@@ -17,7 +17,7 @@
   - 제품 원칙, IA, 학습 설계, 현재 구현 상태, 변경 이력, 다음 작업을 기록한다.
   - 앞으로 “기록해줘 / 저장해줘 / 프로젝트에 남겨줘”라는 요청은 기본적으로 **이 저장소에 기록**한다.
 - **현재 라이브 웹앱 소스 — CODE ONLY**
-  - `bini-s2/readdy-1ff67b` (private)
+  - `bini-s2/japanese-sound-to-script-web` (private)
   - Vercel의 `sound-to-script` 프로젝트와 연결되어 있다.
   - 실제 사이트 UI/API/검색 로직과 배포에 필요한 코드만 관리한다.
   - 프로젝트 설명·결정 로그를 이 저장소에 쌓지 않는다.
@@ -50,7 +50,7 @@
 
 실제 사이트 수정 요청의 기본 루프:
 
-1. `bini-s2/readdy-1ff67b`에서 대상 파일의 **최신 SHA**를 fetch한다.
+1. `bini-s2/japanese-sound-to-script-web`에서 대상 파일의 **최신 SHA**를 fetch한다.
 2. 필요한 범위만 수정한다.
 3. 같은 파일을 연속 수정해야 하면 이전 write 결과의 최신 content SHA 또는 다시 fetch한 SHA를 사용한다.
 4. 커밋 메시지는 짧고 목적이 드러나게 남긴다.

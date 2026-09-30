@@ -1,7 +1,7 @@
 # Current Implementation
 
 > Last synced: 2026-09-30  
-> Production source: `bini-s2/readdy-1ff67b`  
+> Production source: `bini-s2/japanese-sound-to-script-web`  
 > Live: https://sound-to-script.vercel.app/
 
 이 문서는 **지금 실제로 배포되어 있는 제품 상태**를 설명하는 기준 문서다.
@@ -10,7 +10,7 @@
 ## 1. Repository rule
 
 - Project memory / planning / decisions / history: **`bini-s2/japanese-sound-to-script`**
-- Production code / deployment: **`bini-s2/readdy-1ff67b`**
+- Production code / deployment: **`bini-s2/japanese-sound-to-script-web`**
 - Public career work log: `bini-s2/Design-log` — explicit `/log` only
 
 production에서 기능을 수정해도 그 기능의 의미와 결정은 이 planning repository에 다시 기록한다.

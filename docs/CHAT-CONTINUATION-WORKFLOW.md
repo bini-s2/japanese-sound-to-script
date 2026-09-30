@@ -35,7 +35,7 @@
 
 ### Production source
 
-`bini-s2/readdy-1ff67b`
+`bini-s2/japanese-sound-to-script-web`
 
 현재 실제 Vercel 사이트의 소스다. **코드와 배포용 파일만 관리**하고 프로젝트 기록 저장소로 사용하지 않는다.
 
@@ -352,7 +352,7 @@ UI:
 
 1. `bini-s2/japanese-sound-to-script/AGENTS.md`
 2. 이 파일
-3. 필요하면 최신 production repo `bini-s2/readdy-1ff67b` 커밋/파일
+3. 필요하면 최신 production repo `bini-s2/japanese-sound-to-script-web` 커밋/파일
 
 순서로 확인한다.
 
