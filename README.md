@@ -17,9 +17,9 @@
 
 ## Learning Goal
 
-당장의 목표는 특정 자격증 급수나 시험일에 맞춘 시험 대비가 아닙니다. 콘텐츠와 실전 경험으로 익힌 일본어를 문자·어휘·문법 지식으로 전환해, 이후 자격증 학습에 들어갈 수 있는 기초를 만드는 것이 우선입니다.
+핵심 목표는 콘텐츠와 실전 경험으로 먼저 익힌 일본어를 **소리 → 문자 → 의미**로 정확하게 연결하는 것입니다.
 
-자격증은 장기적인 도착점이자 학습 준비도를 확인하는 수단으로 두고, 현재는 번역기와 한글 발음 의존을 줄이며 정확히 듣고 읽는 능력을 기릅니다.
+현재 제품은 이 핵심 루프를 유지하면서 **JLPT N5 학습 베타**까지 확장되었습니다. 자격증 학습은 제품의 유일한 목적이 아니라, 문자·어휘·문법·독해·청해로 확장된 학습 능력을 확인하고 연습하는 한 축으로 다룹니다.
 
 ## Core Idea
 
@@ -156,29 +156,38 @@
 
 ## Current Status
 
-- [x] 핵심 문제 정의
-- [x] 타깃 사용자 정의
-- [x] Learning Status Mapping
-- [x] 경쟁 서비스·시장 1차 리서치
-- [x] Core Learning Loop 정의
-- [x] HEARD / WRITE / LISTEN 구조 정의
-- [x] 경험 리서치 통합
-- [x] 최종 인사이트·Target·JTBD·Problem Statement 확정
-- [x] Product Strategy·Value Proposition 확정
-- [x] HEARD 중심 V1 우선순위 확정
-- [x] Learning Design
-- [x] IA
-- [x] User Flow
-- [x] Low-fi Wireframe 1차 범위·프레임 명세
-- [ ] Low-fi Prototype
-- [ ] Visual Direction
-- [ ] MVP Development
-- [ ] User Test
+> Live product: https://sound-to-script.vercel.app/  
+> Current implementation details: [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md)
+
+- [x] 핵심 문제·타깃·JTBD 정의
+- [x] Core Learning Loop 정의 — `Sound → Script → Meaning → Recall`
+- [x] 발음 검색 MVP 개발·배포
+- [x] 한글 발음 fuzzy search / 문장·구문 / 다단어 경계 추론
+- [x] J-POP 가사체·문어체·구어체 검색 보강
+- [x] 히라가나·가타카나·한자 문자 학습 페이지
+- [x] 히라가나↔가타카나 비교 hover / 혼합 보기
+- [x] 랜덤 퀴즈 — 무작위·상황별 / 글자·단어·문장
+- [x] 단어·문장 `Sound → Script → Meaning` 2-step recall
+- [x] 모르겠어요 / 오답 기반 복습 연결
+- [x] 북마크 / 복습하기
+- [x] JLPT N5 학습 베타 — 문법·어휘·독해·청해·미니 테스트
+- [x] 청해 오디오 fallback
+- [x] 현재 UI hierarchy / tag system / section spacing 정리
+- [ ] 문제은행 확대 및 일본어 문장 QA
+- [ ] N4 이상 JLPT 확장
+- [ ] 실제 사용자 테스트
+- [ ] 계정·동기화·고급 개인화
 
 ## Docs
 
+### Start here
+
 - [`AGENTS.md`](./AGENTS.md) — 새 채팅/에이전트가 바로 작업을 이어가기 위한 시작 가이드
-- [`docs/CHAT-CONTINUATION-WORKFLOW.md`](./docs/CHAT-CONTINUATION-WORKFLOW.md) — 대화 방식·GitHub 수정·Vercel 검증·링크 전달·QA·`/log` 작업 규칙
+- [`docs/CURRENT-IMPLEMENTATION.md`](./docs/CURRENT-IMPLEMENTATION.md) — **현재 라이브 제품의 실제 구현 상태**
+- [`docs/CHANGELOG.md`](./docs/CHANGELOG.md) — production 구현을 프로젝트 관점에서 묶어 기록한 변경 이력
+- [`docs/CHAT-CONTINUATION-WORKFLOW.md`](./docs/CHAT-CONTINUATION-WORKFLOW.md) — 대화 방식·GitHub 수정·Vercel 검증·저장소 기록 규칙
+
+### Product / research
 - [`docs/PRODUCT.md`](./docs/PRODUCT.md) — 제품 정의와 UX 원칙
 - [`docs/PRODUCT-STRATEGY.md`](./docs/PRODUCT-STRATEGY.md) — Value Proposition·V1 우선순위·성공 기준
 - [`docs/LEARNING-DESIGN.md`](./docs/LEARNING-DESIGN.md) — 결과 노출·힌트·선택 복습·오답 피드백

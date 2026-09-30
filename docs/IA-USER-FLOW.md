@@ -1,7 +1,9 @@
 # Information Architecture & User Flow
 
-> Status: V1 structure defined  
-> Scope: HEARD + PRACTICE + COMPARE + SAVE + OPTIONAL REVIEW
+> Status: **Live implementation updated through 2026-09-30**  
+> Scope: SOUND SEARCH + RANDOM QUIZ + JLPT + REVIEW + BOOKMARK + CHARACTER LEARNING  
+>
+> 초기 wireframe 가설보다 실제 제품이 확장되었습니다. 현재 라이브 동작은 [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md)를 우선합니다.
 
 ## 1. IA Goal
 
@@ -17,21 +19,31 @@ V1 홈은 검색 도구와 학습 콘텐츠 허브의 역할을 함께 합니다
 
 ## 2. Primary Navigation
 
-### Global Navigation
+### Current Global Navigation
 
-- **홈** — 발음 검색·무작위 연습·선택 학습·콘텐츠 퀴즈의 시작점
-- **저장 표현** — 저장 목록·표현 상세·복습 진입
+현재 Desktop header:
 
-V1에서 제외:
+1. **소리 검색**
+2. **랜덤 퀴즈**
+3. **JLPT 학습**
+4. **복습하기**
+5. **북마크**
+6. **문자 학습**
 
-- 별도 복습 탭
+Hierarchy:
+
+- 주요 학습 진입: 소리 검색 / 랜덤 퀴즈 / JLPT 학습 / 문자 학습
+- 보조 개인 학습 관리: 복습하기 / 북마크
+- 복습하기·북마크는 다른 주요 카테고리보다 시각적 힘을 약하게 둡니다.
+
+Mobile은 같은 주요 목적지를 bottom navigation으로 제공합니다.
+
+현재 제외:
+
 - 프로필
-- 설정
 - 랭킹·스트릭
-- 독립적인 WRITE·READ·LISTEN 탭
-- 결제·계정
-
-모바일에서는 2개 항목의 하단 내비게이션, 데스크톱에서는 헤더 내비게이션을 기본 가설로 둡니다. 구체적인 배치는 Wireframe 단계에서 검증합니다.
+- 결제·완성형 계정
+- 독립 WRITE 탭
 
 ## 3. Sitemap
 
@@ -72,16 +84,18 @@ flowchart TD
 
 ### Result Detail
 
-- 일본어 표기
-- 읽기·뜻 펼치기
-- 영문 로마자 발음
-- 핵심 단어·활용
-- 유사 후보 비교
-- 예상 의미와 실제 의미
-- 상세 문법
-- 저장
-- 찾던 표현 여부 피드백
-- 새 표현 찾기
+현재 기본 위계:
+
+1. 일본어 원문
+2. 히라가나 읽기
+3. 한국어 발음 표기
+4. 한국어 뜻
+5. 정보성 태그
+6. 맥락/근거
+7. **학습하기 / 북마크**
+8. Deep Dive — 뉘앙스·비슷한 표현·실제 문맥 등
+
+한국어 발음은 서버 결과에 값이 있으면 사용하고, 로컬 내장 표현은 사용자가 한글 발음으로 검색한 값에서 안전하게 이어받을 수 있습니다.
 
 ### Saved Expressions
 

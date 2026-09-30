@@ -4,23 +4,27 @@
 
 ## 0. 세션 시작 시 가장 먼저 할 일
 
-1. 이 파일과 `docs/CHAT-CONTINUATION-WORKFLOW.md`를 읽는다.
-2. 실제 사이트 수정 요청이면 **제품 문서 저장소가 아니라 라이브 소스 저장소**의 최신 파일/SHA를 먼저 가져온다.
+1. 이 파일 → `docs/CURRENT-IMPLEMENTATION.md` → `docs/CHAT-CONTINUATION-WORKFLOW.md` 순서로 읽는다.
+2. 실제 사이트 수정 요청이면 라이브 소스 저장소 `bini-s2/readdy-1ff67b`의 최신 파일/SHA를 먼저 가져온다.
 3. 사용자가 보낸 최신 스크린샷/요청만 정확히 반영하고, 관련 없는 UI나 기능은 임의로 바꾸지 않는다.
-4. 수정 후 GitHub 커밋 → Vercel 배포 상태 확인 → 실제 라이브 링크를 사용자에게 전달한다.
+4. production 수정 후 GitHub 커밋 → Vercel 배포 상태 확인 → 실제 라이브 링크를 사용자에게 전달한다.
+5. 의미 있는 기능·UX 결정·구조 변경은 **반드시 이 저장소(`japanese-sound-to-script`)에도 기록 커밋**을 남긴다.
 
 ## 1. 저장소 역할
 
-- **제품/기획/핸드오프 문서**
+- **프로젝트 기억 / 기획 / 결정 / 구현 히스토리 — SOURCE OF TRUTH**
   - `bini-s2/japanese-sound-to-script`
-  - 이 문서가 있는 저장소.
-- **현재 라이브 웹앱 소스**
+  - 제품 원칙, IA, 학습 설계, 현재 구현 상태, 변경 이력, 다음 작업을 기록한다.
+  - 앞으로 “기록해줘 / 저장해줘 / 프로젝트에 남겨줘”라는 요청은 기본적으로 **이 저장소에 기록**한다.
+- **현재 라이브 웹앱 소스 — CODE ONLY**
   - `bini-s2/readdy-1ff67b` (private)
   - Vercel의 `sound-to-script` 프로젝트와 연결되어 있다.
-  - 실제 사이트 UI/검색 로직 수정은 기본적으로 이 저장소에서 진행한다.
-- **작업 로그**
+  - 실제 사이트 UI/API/검색 로직과 배포에 필요한 코드만 관리한다.
+  - 프로젝트 설명·결정 로그를 이 저장소에 쌓지 않는다.
+- **공개 작업 일지**
   - `bini-s2/Design-log`
-  - 사용자가 `/log`, `기록해줘`, `깃허브에 남겨줘`라고 하면 의미 있는 작업을 즉시 기록한다.
+  - 사용자가 명시적으로 `/log`라고 할 때만 공개 가능한 작업 일지를 별도로 남긴다.
+  - 이는 프로젝트 내부 source of truth를 대체하지 않는다.
 - **사용하지 말 것**
   - `bini-s2/readdy-ai-web`은 다른 프로젝트와 겹치므로 Sound to Script 수정에 사용하지 않는다.
 
@@ -51,11 +55,13 @@
 3. 같은 파일을 연속 수정해야 하면 이전 write 결과의 최신 content SHA 또는 다시 fetch한 SHA를 사용한다.
 4. 커밋 메시지는 짧고 목적이 드러나게 남긴다.
 5. Vercel commit status가 `success`가 될 때까지 확인한다.
-6. 사용자에게 아래 형식으로 회신한다.
+6. 의미 있는 기능/UX/구조 변경이면 `japanese-sound-to-script`의 `docs/CURRENT-IMPLEMENTATION.md` 또는 `docs/CHANGELOG.md`를 갱신하고 별도 docs 커밋을 남긴다.
+7. 사용자에게 아래 형식으로 회신한다.
    - 무엇을 고쳤는지
+   - production 커밋 SHA
+   - project-record 커밋 SHA (기록을 남긴 경우)
    - 배포 성공 여부
    - 라이브 링크
-   - 필요하면 테스트해볼 예시 2~5개
 
 ## 5. 사용자에게 결과 전달하는 톤
 

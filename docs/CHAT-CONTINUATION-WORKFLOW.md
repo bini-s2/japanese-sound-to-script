@@ -25,17 +25,19 @@
 
 ## 2. 저장소 맵
 
-### Product / planning
+### Project source of truth
 
 `bini-s2/japanese-sound-to-script`
 
-제품 원칙, IA, UX, 학습 설계, 이 문서와 같은 장기 맥락을 보관한다.
+제품 원칙, IA, UX, 학습 설계뿐 아니라 **현재 구현 상태, 기능 결정, 작업 이력, 다음 작업**을 보관한다.
+
+앞으로 프로젝트 설명이나 작업 기록을 남길 때 기본 대상은 이 저장소다.
 
 ### Production source
 
 `bini-s2/readdy-1ff67b`
 
-현재 실제 Vercel 사이트의 소스다.
+현재 실제 Vercel 사이트의 소스다. **코드와 배포용 파일만 관리**하고 프로젝트 기록 저장소로 사용하지 않는다.
 
 주요 파일:
 
@@ -48,9 +50,11 @@
 
 https://sound-to-script.vercel.app/
 
-### Work log
+### Public work log
 
 `bini-s2/Design-log`
+
+사용자가 명시적으로 `/log`를 요청했을 때 공개 가능한 커리어 작업 일지를 남기는 별도 저장소다. 프로젝트 내부 기록은 항상 `japanese-sound-to-script`가 우선한다.
 
 ---
 
@@ -92,15 +96,36 @@ https://sound-to-script.vercel.app/
 - 기존 핵심 예제가 깨지지 않을 가능성이 높은지
 - 새로운 예시가 검색 UX 원칙과 맞는지
 
-### E. 사용자 회신
+### E. Project record sync
+
+다음 중 하나라도 해당하면 `bini-s2/japanese-sound-to-script`에 기록을 남긴다.
+
+- 새 기능
+- 학습 방식 변경
+- IA / navigation 변경
+- 검색 원칙·랭킹·데이터 소스 변경
+- 중요한 UI system 결정
+- 배포 구조 변경
+- 사용자가 “기록/저장”을 요청한 작업
+
+작은 픽셀 조정이 연속되는 경우 한 세션 단위로 묶어 기록할 수 있다.
+
+기본 기록 위치:
+
+- 현재 구현 상태 → `docs/CURRENT-IMPLEMENTATION.md`
+- 날짜별 기능 이력 → `docs/CHANGELOG.md`
+- 장기 제품 원칙 변경 → 해당 Product / Learning / IA 문서
+
+### F. 사용자 회신
 
 최종 회신은 길지 않게:
 
 1. “고쳤어”
 2. 핵심 수정 2~5개
-3. “Vercel 재배포 성공 확인”
-4. https://sound-to-script.vercel.app/
-5. 테스트 입력 몇 개
+3. production commit SHA
+4. project-record commit SHA (해당 시)
+5. “Vercel 재배포 성공 확인”
+6. https://sound-to-script.vercel.app/
 
 ---
 
