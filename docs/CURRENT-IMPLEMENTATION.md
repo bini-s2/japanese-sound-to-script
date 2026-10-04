@@ -1,6 +1,6 @@
 # Current Implementation
 
-> Last synced: 2026-09-30  
+> Last synced: 2026-10-04  
 > Production source: `bini-s2/japanese-sound-to-script-web`  
 > Live: https://sound-to-script.vercel.app/
 
@@ -50,6 +50,10 @@ Core:
 - 긴 고유명사·작품명이 짧은 일상 표현을 밀어내지 않음
 - 사전 headword가 아니어도 문법·가사체 근거가 강하면 문장 후보 허용
 - 이상한 기계 번역이나 transliteration-like 한국어 뜻을 차단
+- **IME/자동완성 후보의 존재 자체를 발음 일치 근거로 사용하지 않음**
+- IME·Google 자동완성·가사 검색 후보는 화면에 올라오기 전 **후보 표면형 전체가 사용자가 들은 발음 전체를 소비하는지** 검증
+- `사이고노 → 最後の愛を(사이고노 아이오)`처럼 입력 발음 뒤에 추가 단어가 붙은 prediction tail은 메인 후보에서 탈락
+- 사전 검증도 일본어 표면형만 존재한다고 통과시키지 않고 **표면형 + 실제 reading이 함께 일치**해야 함
 
 ### Result hierarchy
 
@@ -265,6 +269,15 @@ Home major sections use one shared vertical spacing token.
 - `917dd5f9` — recommended search chips
 - `849ad198` — unified semantic tag system
 - `75f7dd0e` — Korean pronunciation on expression results
+
+### 2026-10-04
+
+- `cfcb62b3` — strict full-pronunciation validation for sound-search candidates
+  - IME prediction tails 차단
+  - phrase / Google suggestion / licensed lyrics 경로 공통 reading gate
+  - prefix-only 후보의 점수 부스트 제거
+  - surface + reading 동시 검증
+  - `最後の愛を`가 `さいごの` 검색 후보로 통과하지 못하도록 regression test 추가
 
 ## 10. Next priorities
 
