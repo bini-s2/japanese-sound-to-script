@@ -1,5 +1,29 @@
 # Project Changelog
 
+## 2026-10-04 — Sound-search full pronunciation gate
+
+- `사이고노`처럼 짧은 입력에 `最後の愛を`처럼 **입력 뒤에 다른 단어가 붙은 IME prediction 후보가 노출될 수 있던 문제** 수정
+- 원인:
+  - IME가 반환한 표면형에 실제 읽기를 다시 확인하지 않고 입력 발음을 후보 reading으로 재사용하는 경로가 있었음
+  - Google 자동완성 후보에서 prefix match를 과도하게 점수 보정하는 로직이 있었음
+  - 사전 검증에서 표면형 존재만으로 reading 불일치 후보가 통과할 수 있었음
+- 수정:
+  - IME·Google suggestion·licensed lyric search에 공통 `resolveImeSurfaceReading` gate 적용
+  - mixed kanji/kana는 전체 입력 발음이 표면형 전체와 정렬될 때만 허용
+  - pure kanji는 exact dictionary reading이 전체 발음과 일치할 때만 허용
+  - prefix-only score boost 제거
+  - dictionary evidence는 surface + reading을 함께 확인
+- regression:
+  - `最後の` ↔ `さいごの` 허용
+  - `最後の愛を` ↔ `さいごの` 차단
+  - `さいごのあいを` ↔ `さいごの` 차단
+  - 조사 표기/발음 차이 `今日は / こんにちわ`는 정상 허용
+- feature branch에서 첫 regression build 실패를 확인하고 조사 발음 정렬 조건을 수정한 뒤 재검증
+- Vercel preview build `READY` 및 전체 npm regression suite 통과 후 PR #1 squash merge
+- production commit: `cfcb62b3`
+- production deployment: `READY`
+
+
 ## 2026-10-01 — Production repository rename
 
 - production repository를 `readdy-1ff67b`에서 **`japanese-sound-to-script-web`**으로 변경
