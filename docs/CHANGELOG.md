@@ -1,5 +1,14 @@
 # Project Changelog
 
+## 2026-10-10 — Polite-form sound search regression coverage
+
+- 기존 `api/search.js` 및 `scripts/search-regression.js`를 점검한 결과, 짧은 자동완성 후보 검증은 있었지만 기본 동사 활용형의 검색 회귀 검사가 부족했음.
+- 대표 동사 6개(`分かる`, `食べる`, `行く`, `見る`, `する`, `飲む`)의 정중 현재/부정/과거/과거부정 + 의문형 8가지씩, 총 48가지 활용형을 정확 발음 일치 표현으로 생성하도록 보완.
+- 대표 한글 발음 검색 13종 및 전체 활용형 중복·누락을 확인하는 회귀 테스트 추가.
+- 이전 `와카리마스카`처럼 기초 질문형이 누락되거나 짧은 입력이 긴 후보로 확장되는 문제를 예방하기 위한 테스트 포함.
+- 남은 범위: 모든 일본어 동사/변칙 활용 및 실제 운영 API의 대량 검색 정확도까지 보장하는 것은 아니며, 이후 데이터셋 확장과 검색 품질 측정이 필요함.
+- Production code commits: `345404b2`, `a2c71ef2`, `f8ab7d20`.
+
 ## 2026-10-10 — Common polite expression retrieval fix
 
 - Reported regression: Hangul sound query `와카리마스카` unexpectedly showed "no candidates" despite corresponding to `分かりますか（わかりますか）`.
