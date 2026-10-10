@@ -1,5 +1,15 @@
 # Project Changelog
 
+## 2026-10-10 — Common polite expression retrieval fix
+
+- Reported regression: Hangul sound query `와카리마스카` unexpectedly showed "no candidates" despite corresponding to `分かりますか（わかりますか）`.
+- Confirmed the existing `api/search.js` local exact phrase inventory had `wakarimasen` but lacked `wakarimasuka`, so this basic question was not guaranteed to survive external candidate retrieval and sound-quality filtering.
+- Added trusted local search entries for `分かります`, `分かりますか`, `分かりました`, and `分かりませんか`; the question includes a `分かります + か` segment explanation.
+- Remaining limitation: this patches missing core expressions, not a general conjugation/grammar search engine. Additional natural polite forms and neighboring inputs still need regression coverage.
+- Production source commit: `e1057fff137201461ab39d9574de0f88214f911e`
+- Production Vercel: `READY` and GitHub Vercel commit status `success`.
+
+
 ## 2026-10-04 — Sound-search full pronunciation gate
 
 - `사이고노`처럼 짧은 입력에 `最後の愛を`처럼 **입력 뒤에 다른 단어가 붙은 IME prediction 후보가 노출될 수 있던 문제** 수정
